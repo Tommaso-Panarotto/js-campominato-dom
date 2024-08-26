@@ -20,7 +20,8 @@ const maxScore = document.getElementById('max-score');
 button.addEventListener('click', function () {
     //inizializzo
     grid.innerText = '';
-    score.innerText = 0 ;
+    score.innerText = 0;
+    const bombs = 16;
 
     //raccolta dati
     const typeOfLevel = level.value;
@@ -42,6 +43,12 @@ button.addEventListener('click', function () {
 
     //calcolo il numero di celle
     totalCells = rows * cols;
+
+    //mostro max score
+    maxScore.innerText = totalCells - bombs;
+
+    //array di numeri casuali per bombe
+    console.table(generateRandomNumbers(totalCells, bombs));
 
     //genero il numero corretto di celle
     for (let i = 0; i < totalCells; i++) {
@@ -68,3 +75,5 @@ button.addEventListener('click', function () {
     }
 }
 )
+
+
