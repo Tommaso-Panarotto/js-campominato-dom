@@ -48,7 +48,8 @@ button.addEventListener('click', function () {
     maxScore.innerText = totalCells - bombs;
 
     //array di numeri casuali per bombe
-    console.table(generateRandomNumbers(totalCells, bombs));
+    const bombArray = generateRandomNumbers(totalCells, bombs);
+    console.table(bombArray);
 
     //genero il numero corretto di celle
     for (let i = 0; i < totalCells; i++) {
@@ -65,6 +66,12 @@ button.addEventListener('click', function () {
             cell.classList.add('clicked');
             console.log(cell.innerText);
 
+            //verifico se bomba
+            if (bombArray.includes(parseInt(cell.innerText))) {
+                console.log(`hai totalizzato:${score.innerText}`);
+                cell.classList.add('end');
+                return
+            }
             //incremento il punteggio
             score.innerText++;
         }

@@ -48,3 +48,7 @@ select {
     height: calc(100% / 7);
     flex-basis: calc(100% / 7);
 }
+
+#grid .clicked.end {
+    background-color: red;
+}
