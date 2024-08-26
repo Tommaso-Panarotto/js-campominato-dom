@@ -13,6 +13,7 @@ const button = document.querySelector('button');
 const level = document.querySelector('select');
 const score = document.getElementById('score');
 const maxScore = document.getElementById('max-score');
+const result = document.getElementById('result');
 
 
 
@@ -20,6 +21,7 @@ const maxScore = document.getElementById('max-score');
 button.addEventListener('click', function () {
     //inizializzo
     grid.innerText = '';
+    result.innerText = '';
     score.innerText = 0;
     const bombs = 16;
 
@@ -68,15 +70,15 @@ button.addEventListener('click', function () {
 
             //verifico se bomba
             if (bombArray.includes(parseInt(cell.innerText))) {
-                console.log(`HAI PERSO! ma avevi totalizzato ${score.innerText} punti`);
                 cell.classList.add('end');
+                result.innerText = `HAI PERSO! ma avevi totalizzato ${score.innerText} punti su ${maxScore.innerText} punti`;
                 return
             }
             //incremento il punteggio
             score.innerText++;
 
             if (score.innerText === maxScore.innerText) {
-                console.log(`HAI VINTO!! hai totalizzato ${score.innerText} punti su ${maxScore.innerText} punti`)
+                result.innerText = `HAI VINTO! totalizzando ${score.innerText} punti su ${maxScore.innerText} punti`;
             }
         }
         )
