@@ -68,12 +68,16 @@ button.addEventListener('click', function () {
 
             //verifico se bomba
             if (bombArray.includes(parseInt(cell.innerText))) {
-                console.log(`hai totalizzato:${score.innerText}`);
+                console.log(`HAI PERSO! ma avevi totalizzato ${score.innerText} punti`);
                 cell.classList.add('end');
                 return
             }
             //incremento il punteggio
             score.innerText++;
+
+            if (score.innerText === maxScore.innerText) {
+                console.log(`HAI VINTO!! hai totalizzato ${score.innerText} punti su ${maxScore.innerText} punti`)
+            }
         }
         )
 
