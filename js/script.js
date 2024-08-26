@@ -11,12 +11,17 @@
 const grid = document.getElementById('grid');
 const button = document.querySelector('button');
 const level = document.querySelector('select');
+const score = document.getElementById('score');
+const maxScore = document.getElementById('max-score');
+
+
 
 //reagisco al click
 button.addEventListener('click', function () {
     //inizializzo
     grid.innerText = '';
-    
+    score.innerText = 0 ;
+
     //raccolta dati
     const typeOfLevel = level.value;
 
@@ -47,8 +52,14 @@ button.addEventListener('click', function () {
 
         //reagisco al click sulla cella
         cell.addEventListener('click', function () {
-            cell.classList.toggle('clicked');
+            //verifico se ha già la classe clicked
+            if (cell.classList.contains('clicked')) return;
+
+            cell.classList.add('clicked');
             console.log(cell.innerText);
+
+            //incremento il punteggio
+            score.innerText++;
         }
         )
 

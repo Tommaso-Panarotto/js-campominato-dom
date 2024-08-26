@@ -30,7 +30,8 @@ select {
 }
 
 #grid .clicked {
-    background-color: red;
+    background-color: yellow;
+    cursor: not-allowed;
 }
 
 .easy {
